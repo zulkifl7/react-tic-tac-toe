@@ -1,53 +1,62 @@
 import "./GameBoard.css";
 import Box from "./Box/Box";
+import { useState } from "react";
+
+const gameBoard = [
+	[null, null, null],
+	[null, null, null],
+	[null, null, null],
+];
+let num = 0;
 
 function GameBoard() {
-	let gameProgress = {
-		clicked: {
-			0: undefined,
-			1: undefined,
-			2: undefined,
-			3: undefined,
-			4: undefined,
-			5: undefined,
-			6: undefined,
-			7: undefined,
-			8: undefined,
-		},
-		players: {
-			0: [],
-			1: [],
-		},
-	};
-	let num = 0;
-	function buttonClickedHandle(value) {
-		gameProgress["clicked"][num] = value;
-		gameProgress["players"][num % 2].push(value);
-		console.log(gameProgress);
+	const [newGameBoard, setGameBoard] = useState(gameBoard);
+	function buttonClickedHandle(row, col) {
+		if (num % 2 == 0) {
+			setGameBoard((pervGameBoard) => {
+				const updatedBoard = [
+					...pervGameBoard.map((innerArray) => [...innerArray]),
+				];
+				updatedBoard[row][col] = "X";
+				return updatedBoard;
+			});
+		} else {
+			setGameBoard((pervGameBoard) => {
+				const updatedBoard = [
+					...pervGameBoard.map((innerArray) => [...innerArray]),
+				];
+				updatedBoard[row][col] = "O";
+				return updatedBoard;
+			});
+		}
+		// console.log(newGameBoard[value[0]][value[1]]);
+		console.log(newGameBoard);
+		// console.log(newGameBoard);
 		num += 1;
 	}
 	return (
-		<div id="game-board">
-			<ol>
-				<Box
-					boxNumber={0}
-					buttonClicked={buttonClickedHandle}
-					value="x"
-				/>
-				<Box boxNumber={1} buttonClicked={buttonClickedHandle} />
-				<Box boxNumber={2} buttonClicked={buttonClickedHandle} />
-			</ol>
-			<ol>
-				<Box boxNumber={3} buttonClicked={buttonClickedHandle} />
-				<Box boxNumber={4} buttonClicked={buttonClickedHandle} />
-				<Box boxNumber={5} buttonClicked={buttonClickedHandle} />
-			</ol>
-			<ol>
-				<Box boxNumber={6} buttonClicked={buttonClickedHandle} />
-				<Box boxNumber={7} buttonClicked={buttonClickedHandle} />
-				<Box boxNumber={8} buttonClicked={buttonClickedHandle} />
-			</ol>
-		</div>
+		<ol id="game-board">
+			{newGameBoard.map((row, index) => (
+				<ol key={index}>
+					{row.map((element, elemIndex) => (
+						<li key={elemIndex}>
+							<button
+								onClick={() =>
+									buttonClickedHandle(index, elemIndex)
+								}
+							>
+								{element}
+							</button>
+							{/* <Box
+								boxNumber={[index, elemIndex]}
+								buttonClicked={buttonClickedHandle}
+								value={element}
+							/> */}
+						</li>
+					))}
+				</ol>
+			))}
+		</ol>
 	);
 }
 export default GameBoard;
