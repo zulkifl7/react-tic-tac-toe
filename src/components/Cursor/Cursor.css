@@ -1,0 +1,29 @@
+.cursor {
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  z-index: 5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.1s;
+  pointer-events: none;
+  /* filter: drop-shadow(0 0 4px rgba(160, 160, 160, 0.192)); */
+  /* mix-blend-mode: difference; */
+}
+
+.cursor_ {
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  z-index: 6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.1s;
+  pointer-events: none;
+  /* filter: drop-shadow(0 0 2px rgba(160, 160, 160, 0.4)); */
+  /* mix-blend-mode: difference; */
+}

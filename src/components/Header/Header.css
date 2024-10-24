@@ -1,0 +1,20 @@
+header {
+  text-align: center;
+}
+
+header h1 {
+  font-family: "Caprasimo", cursive;
+  font-size: 5vh;
+  margin: 0 auto 3vw auto;
+  color: aliceblue;
+  /* filter: drop-shadow(0 0 8px rgba(160, 160, 160, 0.4)); */
+  /* color: #3f3b00; */
+}
+
+header img {
+  width: 15vh;
+  object-fit: contain;
+  margin: 3vh auto 1vh auto;
+  /* filter: drop-shadow(0 0 8px rgba(160, 160, 160, 0.4)); */
+  fill: aliceblue;
+}
