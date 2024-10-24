@@ -5,11 +5,7 @@ function Player({ defaultName, defaultSymbol }) {
 	const [isEditing, setIsEditing] = useState(false);
 	const [playerName, setPlayerName] = useState(defaultName);
 	function editClickHandle() {
-		if (!isEditing) {
-			setIsEditing(true);
-		} else {
-			setIsEditing(false);
-		}
+		setIsEditing((value) => !isEditing);
 	}
 	const changeName = (event) => {
 		setPlayerName(event.target.value);

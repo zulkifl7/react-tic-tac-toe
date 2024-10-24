@@ -1,0 +1,34 @@
+#game-board {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 2rem;
+	margin: 3rem 0;
+	padding: 0;
+	flex-direction: column;
+}
+
+#game-board ol {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 2rem;
+	margin: 0;
+	padding: 0;
+	/* background-color: #3f3b00; */
+}
+
+#game-board button {
+	width: 15vh;
+	height: 15vh;
+	border: none;
+	background: #aca788;
+	color: #3f3b00;
+	font-size: 10vh;
+	cursor: pointer;
+	font-family: "Caprasimo", cursive;
+	padding: 2vh;
+}
+
+#game-board button img {
+}
