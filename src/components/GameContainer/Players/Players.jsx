@@ -1,13 +1,13 @@
 import "./players.css";
-import Player from "./Player/PLayer";
+import Player from "./Player/Player.jsx";
 
 function Players() {
-  return (
-    <ol id="players">
-      <Player playerName="player 1" playerSymbol="x" />
-      <Player playerName="player 2" playerSymbol="0" />
-    </ol>
-  );
+	return (
+		<ol id="players">
+			<Player defaultName="player 1" defaultSymbol="x" />
+			<Player defaultName="player 2" defaultSymbol="0" />
+		</ol>
+	);
 }
 
 export default Players;

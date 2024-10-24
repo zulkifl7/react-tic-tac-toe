@@ -1,16 +1,39 @@
 import "./player.css";
 import { useState } from "react";
 
-function Player({ playerName, playerSymbol }) {
-  return (
-    <li>
-      <span className="player">
-        <span className="player-name">{playerName}</span>
-        <span className="player-symbol">{playerSymbol}</span>
-      </span>
-      <button>Edit</button>
-    </li>
-  );
+function Player({ defaultName, defaultSymbol }) {
+	const [isEditing, setIsEditing] = useState(false);
+	const [playerName, setPlayerName] = useState(defaultName);
+	function editClickHandle() {
+		if (!isEditing) {
+			setIsEditing(true);
+		} else {
+			setIsEditing(false);
+		}
+	}
+	const changeName = (event) => {
+		setPlayerName(event.target.value);
+	};
+	return (
+		<li>
+			<span className="player">
+				{!isEditing ? (
+					<span className="player-name">{playerName}</span>
+				) : (
+					<input
+						type="text"
+						required
+						value={playerName}
+						onChange={changeName}
+					></input>
+				)}
+				<span className="player-symbol">{defaultSymbol}</span>
+			</span>
+			<button onClick={editClickHandle}>
+				{isEditing ? "Save" : "Edit"}
+			</button>
+		</li>
+	);
 }
 
 export default Player;
