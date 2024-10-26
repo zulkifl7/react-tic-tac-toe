@@ -18,33 +18,34 @@ function GameBoard({ onSelectSquare }) {
 
 	// Function to handle button clicks, updating the board
 	function buttonClickedHandle(row, col) {
-		if (num % 2 == 0) {
-			// Player X's turn
-			setGameBoard((pervGameBoard) => {
-				// Create a deep copy of the current game board
-				const updatedBoard = [
-					...pervGameBoard.map((innerArray) => [...innerArray]),
-				];
-				// Place X's image at the clicked position
-				updatedBoard[row][col] = <img src={imageX} />;
-				return updatedBoard;
-			});
-		} else {
-			// Player O's turn
-			setGameBoard((pervGameBoard) => {
-				// Create a deep copy of the current game board
-				const updatedBoard = [
-					...pervGameBoard.map((innerArray) => [...innerArray]),
-				];
-				// Place O's image at the clicked position
-				updatedBoard[row][col] = <img src={imageO} />;
-				return updatedBoard;
-			});
+		if (newGameBoard[row][col] === null) {
+			if (num % 2 == 0) {
+				// Player X's turn
+				setGameBoard((pervGameBoard) => {
+					// Create a deep copy of the current game board
+					const updatedBoard = [
+						...pervGameBoard.map((innerArray) => [...innerArray]),
+					];
+					// Place X's image at the clicked position
+					updatedBoard[row][col] = <img src={imageX} />;
+					return updatedBoard;
+				});
+			} else {
+				// Player O's turn
+				setGameBoard((pervGameBoard) => {
+					// Create a deep copy of the current game board
+					const updatedBoard = [
+						...pervGameBoard.map((innerArray) => [...innerArray]),
+					];
+					// Place O's image at the clicked position
+					updatedBoard[row][col] = <img src={imageO} />;
+					return updatedBoard;
+				});
+			}
+			console.log(newGameBoard); // Log the current state of the board
+			onSelectSquare(); // Call the function to change the active player
+			num += 1; // Increment the counter to switch turns
 		}
-
-		console.log(newGameBoard); // Log the current state of the board
-		onSelectSquare(); // Call the function to change the active player
-		num += 1; // Increment the counter to switch turns
 	}
 
 	return (
