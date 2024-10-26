@@ -13,8 +13,6 @@
 	/* animation: pulse 2s infinite ease-in-out; */
 	transition: border 1s ease;
 }
-#player li.delayed-active {
-}
 
 #players li.active .player-name,
 #players li.active .player-symbol {
