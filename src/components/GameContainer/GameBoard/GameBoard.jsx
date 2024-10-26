@@ -10,6 +10,8 @@ const gameBoard = [
 	[null, null, null],
 	[null, null, null],
 ];
+
+// const wins = [[(0,0),(0,1),(0,2)]
 let num = 0; // Variable to keep track of the turn (odd or even)
 
 function GameBoard({ onSelectSquare }) {
@@ -18,6 +20,9 @@ function GameBoard({ onSelectSquare }) {
 
 	// Function to handle button clicks, updating the board
 	function buttonClickedHandle(row, col) {
+		// [<img src={imageX} />,<img src={imageO} />].map((elm) => {
+
+		// })
 		if (newGameBoard[row][col] === null) {
 			if (num % 2 == 0) {
 				// Player X's turn
@@ -42,10 +47,10 @@ function GameBoard({ onSelectSquare }) {
 					return updatedBoard;
 				});
 			}
-			console.log(newGameBoard); // Log the current state of the board
 			onSelectSquare(); // Call the function to change the active player
 			num += 1; // Increment the counter to switch turns
 		}
+		console.log(newGameBoard); // Log the current state of the board
 	}
 
 	return (
@@ -59,6 +64,11 @@ function GameBoard({ onSelectSquare }) {
 							<button
 								onClick={() =>
 									buttonClickedHandle(index, elemIndex)
+								}
+								disabled={
+									newGameBoard[index][elemIndex] === null
+										? false
+										: true
 								}
 							>
 								{element}
