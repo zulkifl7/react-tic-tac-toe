@@ -1,23 +1,20 @@
 header {
-	text-align: center;
+	/* text-align: center; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 3vh;
 	animation: displayIn 1s ease;
 }
 
 header h1 {
 	font-family: "Caprasimo", cursive;
-	font-size: 5vh;
-	margin: 0 auto 3vw auto;
-	color: aliceblue;
-	/* animation: displayIn 1s ease; */
-	/* filter: drop-shadow(0 0 8px rgba(160, 160, 160, 0.4)); */
-	/* color: #3f3b00; */
+	font-size: 8vh;
+	font-weight: 100;
+	margin-left: 5vh;
 }
 
 header img {
-	width: 15vh;
+	width: 12vh;
 	object-fit: contain;
-	margin: 3vh auto 1vh auto;
-	/* animation: displayIn 1s ease; */
-	/* filter: drop-shadow(0 0 8px rgba(160, 160, 160, 0.4)); */
-	fill: aliceblue;
 }

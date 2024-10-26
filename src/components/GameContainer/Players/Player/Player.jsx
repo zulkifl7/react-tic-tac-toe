@@ -1,7 +1,7 @@
 import "./player.css";
 import { useState } from "react";
 
-function Player({ defaultName, defaultSymbol }) {
+function Player({ defaultName, defaultSymbol, classList }) {
 	const [isEditing, setIsEditing] = useState(false);
 	const [playerName, setPlayerName] = useState(defaultName);
 	function editClickHandle() {
@@ -11,7 +11,7 @@ function Player({ defaultName, defaultSymbol }) {
 		setPlayerName(event.target.value);
 	};
 	return (
-		<li>
+		<li className={classList}>
 			<span className="player">
 				{!isEditing ? (
 					<span className="player-name">{playerName}</span>

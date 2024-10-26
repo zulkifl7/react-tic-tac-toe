@@ -1,5 +1,7 @@
 import "./GameBoard.css";
 import Box from "./Box/Box";
+import imageX from "../../../assets/x.svg";
+import imageO from "../../../assets/o.svg";
 import { useState } from "react";
 
 const gameBoard = [
@@ -9,7 +11,7 @@ const gameBoard = [
 ];
 let num = 0;
 
-function GameBoard() {
+function GameBoard({ onSelectSquare }) {
 	const [newGameBoard, setGameBoard] = useState(gameBoard);
 	function buttonClickedHandle(row, col) {
 		if (num % 2 == 0) {
@@ -17,7 +19,7 @@ function GameBoard() {
 				const updatedBoard = [
 					...pervGameBoard.map((innerArray) => [...innerArray]),
 				];
-				updatedBoard[row][col] = "X";
+				updatedBoard[row][col] = <img src={imageX} />;
 				return updatedBoard;
 			});
 		} else {
@@ -25,13 +27,14 @@ function GameBoard() {
 				const updatedBoard = [
 					...pervGameBoard.map((innerArray) => [...innerArray]),
 				];
-				updatedBoard[row][col] = "O";
+				updatedBoard[row][col] = <img src={imageO} />;
 				return updatedBoard;
 			});
 		}
 		// console.log(newGameBoard[value[0]][value[1]]);
 		console.log(newGameBoard);
 		// console.log(newGameBoard);
+		onSelectSquare();
 		num += 1;
 	}
 	return (

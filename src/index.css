@@ -20,7 +20,7 @@ html {
 body {
 	background-color: #1a1a1a;
 	max-height: 100vh;
-	/* overflow: hidden; */
+	overflow: hidden;
 }
 
 #pre-game {
