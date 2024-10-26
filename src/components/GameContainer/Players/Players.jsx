@@ -11,10 +11,10 @@ function Players({ activePlayer }) {
 				defaultName="player 1"
 				defaultSymbol="X"
 			/>
-			<div>
-				{/* <div className="image"></div> */}
+			{/* <div>
+				<div className="image"></div>
 				<img src={logo} alt="tic tac toe logo" />
-			</div>
+			</div> */}
 			<Player
 				classList={activePlayer === "O" ? "active" : ""}
 				defaultName="player 2"
