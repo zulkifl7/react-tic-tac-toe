@@ -5,7 +5,7 @@ import GameContainer from "./components/GameContainer/GameContainer";
 function App() {
 	return (
 		<>
-			{/* <Cursor /> */}
+			<Cursor />
 			{/* <Header /> */}
 			<main>
 				<GameContainer />
