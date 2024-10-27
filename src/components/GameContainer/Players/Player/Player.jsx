@@ -2,7 +2,7 @@ import "./player.css";
 import { useState } from "react";
 
 // Player component to display and edit player details
-function Player({ defaultName, defaultSymbol, classList }) {
+function Player({ defaultName, defaultSymbol, classList, sendName }) {
 	// State to manage whether the player name is being edited
 	const [isEditing, setIsEditing] = useState(false);
 	// State to keep track of the player's name
@@ -11,6 +11,9 @@ function Player({ defaultName, defaultSymbol, classList }) {
 	// Toggle the editing mode when the edit button is clicked
 	function editClickHandle() {
 		setIsEditing((value) => !isEditing);
+		if (isEditing) {
+			sendName(playerName);
+		}
 	}
 
 	// Update the player's name as the user types into the input
