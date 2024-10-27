@@ -2,12 +2,13 @@
 import React from "react";
 import "./WinnerPopup.css";
 
-function WinnerPopup({ winner, moves, suggestions, onClose }) {
+function WinnerPopup({ winnerNameProp, moves, suggestions, onClose }) {
+	console.log("Winner is (fom WinnerPopup.jsx) - " + winnerNameProp);
 	return (
 		<div className="winner-popup">
 			<div className="popup-content">
 				<h2>Congratulations!</h2>
-				<p>{winner} Won 🎉</p>
+				<p>player {winnerNameProp} Won 🎉</p>
 				<p>Total Moves: {moves}</p>
 				<h3>Suggestions for Improvement:</h3>
 				<ul>

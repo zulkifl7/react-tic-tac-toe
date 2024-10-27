@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 
 // Players component that displays the players and their active status
 function Players({ activePlayer, playerNames }) {
-	const players = {
+	let players = {
 		player1: "X",
 		player2: "O",
 	};

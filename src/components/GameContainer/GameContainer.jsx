@@ -19,11 +19,11 @@ function GameContainer() {
 		console.log(activePlayer);
 	}
 
-	const getPlayers = (players) => {
-		playerNames.player1 = players.player1;
-		playerNames.player2 = players.player2;
-		setPlayers(players);
-		console.log(players);
+	const getPlayers = (gotPlayers) => {
+		playerNames.player1 = gotPlayers.player1;
+		playerNames.player2 = gotPlayers.player2;
+		setPlayers(gotPlayers);
+		console.log(gotPlayers);
 	};
 
 	return (
@@ -31,7 +31,7 @@ function GameContainer() {
 			{/* Players component to display the current active player */}
 			<Players activePlayer={activePlayer} playerNames={getPlayers} />
 			{/* GameBoard component with a callback to change player when a square is selected */}
-			<GameBoard onSelectSquare={changePlayer} players={playerNames} />
+			<GameBoard onSelectSquare={changePlayer} players={players} />
 		</div>
 	);
 }

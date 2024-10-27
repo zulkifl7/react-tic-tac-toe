@@ -100,6 +100,7 @@ const calculateSuggestions = (board) => {
 };
 
 let num = 0; // Variable to keep track of the turn (odd or even)
+let winnerName = "";
 
 function GameBoard({ onSelectSquare, players }) {
 	const [newGameBoard, setGameBoard] = useState(gameBoard);
@@ -107,20 +108,22 @@ function GameBoard({ onSelectSquare, players }) {
 	const [moves, setMoves] = useState(0);
 	const [showPopup, setShowPopup] = useState(false);
 	const [suggestions, setSuggestions] = useState([]);
-	let winnerName = "";
 
 	useEffect(() => {
-		const winner = checkWinner(newGameBoard);
-		if (winner) {
-			setWinner(winner);
+		const winnerNameUse = checkWinner(newGameBoard);
+		if (winnerNameUse) {
+			setWinner(winnerNameUse);
 			setSuggestions(calculateSuggestions(newGameBoard));
 			setShowPopup(true);
 		}
 	}, [newGameBoard]);
 
+	console.log(players);
 	if (winner && winner.props.src == "/src/assets/x.svg") {
 		winnerName = players.player1;
-		console.log("Winner is " + winnerName);
+		console.log("Winner is " + players.player1);
+		console.log("Winner is 1" + players.player1);
+		console.log("Winner is 2" + players.player1);
 	} else if (winner && winner.props.src == "/src/assets/o.svg") {
 		winnerName = players.player2;
 	}
@@ -179,7 +182,7 @@ function GameBoard({ onSelectSquare, players }) {
 
 			{showPopup && (
 				<WinnerPopup
-					winner={winnerName}
+					winnerNameProp={winnerName}
 					moves={moves}
 					suggestions={suggestions}
 					onClose={closePopup}
